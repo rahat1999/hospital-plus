@@ -1,0 +1,133 @@
+/* =======Banner======== */
+
+.banner-container{
+    border-bottom:  rgb(139 92 246) solid 4px;
+}
+.banner-img{
+    height: 96vh;
+}
+
+@media only screen and (max-width: 768px) {
+    .banner-img{
+        height: 40vh;
+    } 
+}
+
+/* --------Footer------- */
+
+.footer h4{
+    font-family: 'Bungee', cursive;
+    color: orange;
+    text-shadow: 1px 1px 1px gray;
+}
+
+.footer a{
+    text-decoration: none;
+    font-size: 2em;
+    text-shadow: 1px 1px gray;
+    transition: .8s;
+    line-height: 20px;
+    color: white;
+
+}
+.footer-info h4{
+    font-family: 'Bungee', cursive;
+    color: orange;
+    text-shadow: 1px 1px 1px gray;
+}
+.footer-info p{
+  
+    font-weight: 600;
+    line-height: 10px;
+    color: white;
+    
+}
+
+.end-text{
+    color: rgb(196, 192, 192);
+    font-weight: 600;
+    text-align: center;
+    padding-bottom:15px ;
+    margin-bottom: 0;
+}
+
+/* ----------Featurs---------- */
+
+.icon-warper{
+font-size: 3.5em;
+color: #8b5cf6;
+}
+
+/* ------------Testomonial -------------*/
+/* .testmonial-img{
+    width: 100px;
+    height: 200px;
+    border-radius: 50%;
+} */
+
+/* ---Form---- */
+.register-title{
+    margin-bottom:30px;
+    margin-top: 30px;
+}
+.login-title{
+    margin-top: 30px;
+    margin-bottom:-10px;
+    text-align: center;
+}
+.login-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 40vh;
+}
+.register-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 50vh;
+}
+.from-input{
+    width: 100%;
+    text-align: center;
+}
+.from-input input{
+    height: 2.5em;
+    width: 80%;
+    margin: 10px;
+    padding: 0 10px;
+    border: 2px solid #8b5cf6;
+}
+.from-input Button{
+    width: 80%;
+} 
+.go_to_register{
+    margin-top: -20px;
+}
+.go_to_login{
+    margin-top: 20px;
+}
+@media only screen and (max-width: 768px) {
+    .register-title{
+        margin-bottom:-50px;
+        margin-top: 30px;
+    }.go_to_login{
+        margin-top: -30px;
+    }
+    .login-title{
+        margin-top: 30px;
+        margin-bottom:-60px;
+    }
+.go_to_register{
+    margin-top: -70px;
+}
+}
+
+/* Appointment */
+.appointment-card{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
