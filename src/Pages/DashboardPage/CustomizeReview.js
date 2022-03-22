@@ -20,7 +20,7 @@ const CustomizeReview = () => {
     }, [])
 
     const deleteBtn = (id) => {
-        console.log(id)
+        // console.log(id)
         const proced = window.confirm('Are You sure Wanna cancle it?')
         if (proced) {
             const uri = `https://damp-spire-26067.herokuapp.com/deleteReview/${id}`
@@ -29,7 +29,7 @@ const CustomizeReview = () => {
             })
                 .then(res => res.json())
                 .then(result => {
-                    console.log(result);
+                    // console.log(result);
                     if (result.deletedCount > 0) {
                         const remaining = reviews.filter(data => data._id !== id)
                         setReview(remaining)
@@ -55,7 +55,7 @@ const CustomizeReview = () => {
         setReviewId(id)
     }
     const onSubmit = data => {
-        console.log(data);
+        // console.log(data);
         const uri = `https://damp-spire-26067.herokuapp.com/updateReviewStatus/${reviewId}`
         fetch(uri, {
             method: "PUT",
@@ -66,16 +66,14 @@ const CustomizeReview = () => {
         })
             .then(res => res.json())
             .then(da => {
-                console.log(da);
-                if (da.modifiedCount > 0) {
-                    const remaining = da.filter(data => data._id !== reviewId)
+                // console.log(da, 'update');
+                if (da.modifiedCount) {
+                    alert('Status Update Successfully')
+                    const remaining = reviews.filter(data => data._id !== reviewId)
                     setReview(remaining)
-                    Swal.fire(
-                        'Update Successfull!',
-                        '',
-                        'success'
-                    )
+
                 } else {
+
                     Swal.fire(
                         'Something went wrong try again!',
                         '',
@@ -105,10 +103,14 @@ const CustomizeReview = () => {
 
                                 reviews.map((rev, i) => <tr key={rev._id}>
                                     <td>{i + 1}</td>
-                                    <td>{rev?.displayName}</td>
+                                    <td>
+                                        {rev?.displayName}
+                                        <br />
+                                        {rev.date}
+                                    </td>
                                     <td>{rev.rating}</td>
                                     <td>
-                                        {rev.status}
+                                        {rev.status === "block" ? <span className='bg-green-500 px-1 rounded-md'>Approved</span> : <span className='bg-gray-500 px-1 rounded-md'>Panding</span>}
                                         <br />
                                         <form onSubmit={handleSubmit(onSubmit)}>
 

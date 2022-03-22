@@ -17,12 +17,12 @@ const ReviewContent = () => {
             <Container>
                 {
                     loading ? <div style={{ boxSizing: 'boder-box' }}>
-                        <h2 className='text-center text-blue-600 pt-5'>Review</h2>
-                        <section className='grid lg:grid-cols-1 gap-7 py-5 '>
+                        <h2 className='text-center text-violet-600 pt-5'>Review</h2>
+                        <section className='grid lg:grid-cols-2 gap-7 py-5 '>
                             {
                                 reviews.map(review =>
 
-                                    <div style={{ display: review.status }} key={review._id}
+                                    <div style={{ display: review.status, borderLeft: "5px solid #8b5cf6" }} key={review._id}
                                         className=" border-2 ps-4 hover:bg-gray-100 shadow-md rounded">
 
                                         <div className='ms-5'>
@@ -34,6 +34,8 @@ const ReviewContent = () => {
                                                 disabled
                                             />
                                         </div>
+                                        <h5 className='text-violet-500'>{review.displayName}</h5>
+                                        <b>{review.date}</b>
                                         <p className='text-warp'>{review.review}</p>
                                     </div>)
                             }

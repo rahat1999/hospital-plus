@@ -30,22 +30,28 @@ const Dashboard = ({ show, handleClose, }) => {
                                 </Link>
                             </div>
                             <div>
-                                <Link to='dashboard/makeAdmin'>
-                                    <button className='text-center font-bold my-1 hover:text-orange-600'>Make Admin</button>
-                                </Link>
-                            </div>
-                            <div>
-                                <Link to='dashboard/addService'>
-                                    <button className='text-center font-bold my-1 hover:text-orange-600'>Add Service</button>
-                                </Link>
-                            </div>
-                            <div>
                                 <Link to='dashboard/customizeReview'>
                                     <button className='text-center font-bold my-1 hover:text-orange-600'>
                                         Customize Review
                                     </button>
                                 </Link>
                             </div>
+                            <div>
+                                <Link to='dashboard/makeAdmin'>
+                                    <button className='text-center font-bold my-1 hover:text-orange-600'>Make Admin</button>
+                                </Link>
+                            </div>
+                            <div>
+                                <Link to='dashboard/addServices'>
+                                    <button className='text-center font-bold my-1 hover:text-orange-600'>Add Service</button>
+                                </Link>
+                            </div>
+                            <div>
+                                <Link to='dashboard/addDoctors'>
+                                    <button className='text-center font-bold my-1 hover:text-orange-600'>Add Doctors</button>
+                                </Link>
+                            </div>
+
                         </>
                             :
                             <>

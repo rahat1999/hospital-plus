@@ -9,7 +9,6 @@ const AllAppointment = () => {
     const [appointmentID, setAppointmentId] = useState('')
     const { register, handleSubmit } = useForm();
 
-
     useEffect(() => {
         fetch('https://damp-spire-26067.herokuapp.com/allAppointments')
             .then(res => res.json())
@@ -50,7 +49,7 @@ const AllAppointment = () => {
         setAppointmentId(apID)
     }
     const onSubmit = data => {
-        const uri = `https://damp-spire-26067.herokuapp.com/statusUpdate/${appointmentID}`
+        const uri = `https://damp-spire-26067.herokuapp.com/updateAppoitmentStatus/${appointmentID}`
         fetch(uri, {
             method: "PUT",
             headers: {
@@ -60,17 +59,14 @@ const AllAppointment = () => {
         })
             .then(res => res.json())
             .then(da => {
-                if (da.modifiedCount > 0) {
+                console.log(da);
+                if (da.modifiedCount) {
+                    alert("Update successfully")
                     const remaining = appointments.filter(data => data._id !== appointmentID)
                     setAppointments(remaining)
-                    Swal.fire(
-                        'Update Successfull!',
-                        '',
-                        'success'
-                    )
-
                 }
                 else {
+
                     Swal.fire(
                         'Something went wrong.Could not Update!',
                         '',
@@ -83,6 +79,7 @@ const AllAppointment = () => {
 
     return (
         <Container className='py-5'>
+            <h2 className='text-center text-violet-600'> Appointment Collection </h2>
             {
                 loading ? <section className="">
                     <Table responsive striped bordered hover>

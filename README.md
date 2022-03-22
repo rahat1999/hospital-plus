@@ -1,7 +1,9 @@
-# Hospital Plus
-### live Website  [Hospital Plus](https://hospital-plus-6c491.web.app/).
+# Hospital Pluse
+### live Website  [Hospital Pluse](https://hospital-plus-6c491.web.app/).
+## 
+### server Website  [Hospital Pluse](https://damp-spire-26067.herokuapp.com/).
 
-## hospital Plus website details
+## hospital Pluse website details
 * This project made by React.js | React Route, Firbase Tailwind && Bootstrap;
 * Make diffrent dasbord panel for user and admin.
 * It’s a website about Hospital Services with modern Web Technology.

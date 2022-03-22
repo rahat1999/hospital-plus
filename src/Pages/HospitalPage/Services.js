@@ -33,7 +33,7 @@ const Services = () => {
                                 <div key={item._id} className="border-2 px-2 py-3 rounded-md shadow hover:bg-orange-100 duration-75">
                                     <h5 className='text-center bg-blue-400 text-white p-1 shadow'>{item.serviceName}</h5>
                                     <p className='text-violet-600 text-center font-bold mb-0'>{item.time}</p>
-                                    <p className='text-violet-600 text-center font-bold mb-0'>{item.time}</p>
+
                                     <div className="appointment-card text-orange-400">
                                         <div>
                                             <h5 >{item.doctor}</h5>

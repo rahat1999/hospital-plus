@@ -15,6 +15,9 @@ import AllAppointment from './Pages/DashboardPage/AllAppointment';
 import MyAppointment from './Pages/DashboardPage/MyAppointment';
 import Review from './Pages/DashboardPage/Review';
 import CustomizeReview from './Pages/DashboardPage/CustomizeReview';
+import AddServices from './Pages/DashboardPage/AddServices';
+import Doctors from './Pages/HospitalPage/Doctors';
+import AddDoctors from './Pages/DashboardPage/AddDoctors';
 
 function App() {
   return (
@@ -28,11 +31,14 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="services" element={<Services />} />
+            <Route path="doctors" element={<Doctors />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="dashboard/myAppointment" element={<MyAppointment />} />
             <Route path="dashboard/review" element={<Review />} />
             <Route path="dashboard/makeAdmin" element={<AdminRoute ><MakeAdmin /></AdminRoute>} />
             <Route path="dashboard/allAppointment" element={<AdminRoute ><AllAppointment /></AdminRoute>} />
+            <Route path="dashboard/addDoctors" element={<AdminRoute ><AddDoctors /></AdminRoute>} />
+            <Route path="dashboard/addServices" element={<AdminRoute ><AddServices /></AdminRoute>} />
             <Route path="dashboard/customizeReview" element={<AdminRoute ><CustomizeReview /></AdminRoute>} />
             <Route path="/appointment/:id" element={<PrivateRoute><Appointment /></PrivateRoute>} />
 

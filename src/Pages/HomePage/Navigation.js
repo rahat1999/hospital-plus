@@ -29,10 +29,10 @@ const Navigation = () => {
                         <i className="fa-solid fa-envelope text-black"></i> hospitalplus@gmail.com</span>
                 </div>
             </header>
-            <Navbar className='bg-violet-500 shadow-lg py-3' expand="lg" fixed='scroll-top'>
+            <Navbar className='bg-violet-500 shadow-lg py-3 ' expand="lg" >
                 <Container fluid className='px-5'>
-                    <Navbar.Brand className='text-xl font-extrabold uppercase' href="#">
-                        Hospital <i className="fa-solid fa-plus bold"></i>
+                    <Navbar.Brand className='text-xl font-extrabold bg-violet-700 uppercase px-2 rounded text-white shadow-md' href="#">
+                        <i className="fa-solid fa-hospital bold text-white"></i>     Hospital Pluse
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
@@ -45,7 +45,10 @@ const Navigation = () => {
                                 <Nav.Link className='font-bold' href="#action1">Home</Nav.Link>
                             </Link>
                             <Link to='services'>
-                                <Nav.Link className='font-bold ' href="#action2">Appointment</Nav.Link>
+                                <Nav.Link className='font-bold ' href="#action2">Services</Nav.Link>
+                            </Link>
+                            <Link to='doctors'>
+                                <Nav.Link className='font-bold ' href="#action2">Doctors</Nav.Link>
                             </Link>
                             {
                                 user.email && <NavLink to='dashboard'>
@@ -78,7 +81,7 @@ const Navigation = () => {
                 show={show}
                 handleClose={handleClose}
             />
-        </div>
+        </div >
     );
 };
 
