@@ -6,6 +6,7 @@ import Featurs from './Featurs';
 import LatestNews from './LatestNews';
 import OurPatners from './OurPatners';
 import Footer from '../Shared/Footer';
+import ReviewContent from './ReviewContent';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <Departments />
             <OurPatners />
             <LatestNews />
+            <ReviewContent />
             {/* <Testmonial /> */}
             <Footer />
         </div>

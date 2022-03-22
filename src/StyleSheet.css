@@ -125,9 +125,38 @@ color: #8b5cf6;
 }
 }
 
-/* Appointment */
+/* -------------------Service----------- */
 .appointment-card{
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
+}
+
+/* appointment */
+.form-container {
+    text-align: center;
+    box-sizing: border-box;
+
+}
+.appointment_form input{
+    text-align: center;
+    padding: 10px 10px ;
+    border: #8b5cf6 solid;
+    margin: 10px;
+}
+.gender-content{
+    padding: 10px 10px ;
+    border: #8b5cf6 solid;
+    margin: 10px;
+}
+
+/* Dashboard */
+.dashboard-offcanvas{
+    margin-top: 7rem;
+}
+@media only screen and (max-width: 768px) {
+    .dashboard-offcanvas{
+        margin-top: 10rem;
+        
+    }
 }

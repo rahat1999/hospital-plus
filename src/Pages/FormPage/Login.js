@@ -8,14 +8,13 @@ const Login = () => {
     const { user, loginWithGoogle, loginWithEmailAndPassword, isLoading, authError, } = useAuth()
     const location = useLocation()
     const navigate = useNavigate();
-    console.log(user);
+    // console.log(user);
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         const { email, password } = data;
         loginWithEmailAndPassword(email, password, location, navigate)
         reset()
     };
-
 
     const handleGoogleLogin = (e) => {
         loginWithGoogle(location, navigate)
@@ -31,23 +30,24 @@ const Login = () => {
             <div className='login-form'>
 
                 {
-                    isLoading ? <p className='font-bold text-blue-600'>Loading...</p> : <form onSubmit={handleSubmit(onSubmit)}>
-                        <label className="from-input">
-                            <input placeholder='Email' type='email' {...register("email")} required />
-                        </label>
-                        <label className="from-input">
-                            <input placeholder='Password' type='password' {...register("password")} required />
-                        </label>
+                    isLoading ? <p className='font-bold text-blue-600'>Loading...</p>
+                        : <form onSubmit={handleSubmit(onSubmit)}>
+                            <label className="from-input">
+                                <input placeholder='Email' type='email' {...register("email")} required />
+                            </label>
+                            <label className="from-input">
+                                <input placeholder='Password' type='password' {...register("password")} required />
+                            </label>
 
-                        {errors.exampleRequired && <span>This field is required</span>}
+                            {errors.exampleRequired && <span>This field is required</span>}
 
-                        {user.email && <p className='text-center bg-primary text-white'>Login successfully</p>}
-                        {authError && <p className='text-center bg-danger text-white'>{authError}</p>}
+                            {user.email && <p className='text-center bg-primary text-white'>Login successfully</p>}
+                            {authError && <p className='text-center bg-danger text-white'>{authError}</p>}
 
-                        <label className="from-input">
-                            <button type="submit" className='cursor-pointer duration-75 bg-violet-600 hover:bg-violet-500 px-4 py-2 rounded-md shadow-md text-white text-bold'><strong>Submit</strong></button>
-                        </label>
-                    </form>
+                            <label className="from-input">
+                                <button type="submit" className='cursor-pointer duration-75 bg-violet-600 hover:bg-violet-500 px-4 py-2 rounded-md shadow-md text-white text-bold'><strong>Submit</strong></button>
+                            </label>
+                        </form>
                 }
 
             </div>

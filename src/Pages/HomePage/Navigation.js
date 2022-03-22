@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import Dashboard from '../DashboardPage/Dashboard';
+
 
 const Navigation = () => {
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     const { user, logOut } = useAuth()
     return (
         <div>
@@ -36,13 +44,14 @@ const Navigation = () => {
                             <Link to='/'>
                                 <Nav.Link className='font-bold' href="#action1">Home</Nav.Link>
                             </Link>
-                            <Link to='appointment'>
+                            <Link to='services'>
                                 <Nav.Link className='font-bold ' href="#action2">Appointment</Nav.Link>
                             </Link>
                             {
-                                user.email && <Link to='dashboard'>
-                                    <Nav.Link className='font-bold' href="#deets">Dashboard</Nav.Link>
-                                </Link>
+                                user.email && <NavLink to='dashboard'>
+                                    <Nav.Link onClick={handleShow} className='font-bold' href="#deets">Dashboard</Nav.Link>
+
+                                </NavLink>
                             }
                         </Nav>
                         <Nav>
@@ -65,6 +74,10 @@ const Navigation = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+            <Dashboard
+                show={show}
+                handleClose={handleClose}
+            />
         </div>
     );
 };

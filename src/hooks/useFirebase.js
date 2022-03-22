@@ -29,7 +29,7 @@ const useFirebase = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
                 const user = result.user;
-                // saveUserToDB(user.email, user.displayName, 'PUT')
+                saveUserToDB(user.email, user.displayName, 'PUT')
                 const destination = location.state?.from || '/';
                 navigate(destination)
                 setAuthError('')
@@ -48,7 +48,7 @@ const useFirebase = () => {
                 const newUser = { email, displayName: name }
                 setUser(newUser)
                 /*----save user to the Database ---*/
-                // saveUserToDB(email, name, 'POST')
+                saveUserToDB(email, name, 'POST')
 
                 /*=== send name to firebase after creation ===*/
                 updateProfile(auth.currentUser, {
@@ -79,19 +79,15 @@ const useFirebase = () => {
             })
             .finally(() => setIsLoading(false))
     }
-    // //*-----find admin----*//
-    // useEffect(() => {
-    //     fetch(`https://dry-harbor-11353.herokuapp.com/users/${user.email}`)
-    //         .then(res => res.json())
-    //         .then(data => setAdmin(data.admin))
-    // }, [user.email])
+    //*-----find admin----*//
+    useEffect(() => {
+        fetch(`https://damp-spire-26067.herokuapp.com/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setAdmin(data.admin)
+            })
+    }, [user.email])
 
-    // //*-----find admin----*//
-    // useEffect(() => {
-    //     fetch(`https://dry-harbor-11353.herokuapp.com/users/${user.email}`)
-    //         .then(res => res.json())
-    //         .then(data => setAdmin(data.admin))
-    // }, [user.email])
 
     /* ========= Sing out =========== */
     const logOut = () => {
@@ -107,19 +103,19 @@ const useFirebase = () => {
     }
 
     /* === Save User To The Database ==== */
-    // const saveUserToDB = (email, displayName, method) => {
+    const saveUserToDB = (email, displayName, method) => {
 
-    //     const user = { email, displayName };
-    //     fetch('https://dry-harbor-11353.herokuapp.com/users', {
-    //         method: method,
-    //         headers: { 'content-type': 'application/json' },
-    //         body: JSON.stringify(user)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             // console.log(data);
-    //         })
-    // }
+        const user = { email, displayName };
+        fetch('https://damp-spire-26067.herokuapp.com/users', {
+            method: method,
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data, 'kuk');
+            })
+    }
 
     /* ===== Observer user State ====== */
     useEffect(() => {
